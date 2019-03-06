@@ -10,12 +10,17 @@ namespace DigitalClock
     {
         static void Main(string[] args)
         {
+            ClockDisplay clock = new ClockDisplay(23, 59);
+            Console.WriteLine(clock.display);
+            clock.timeTick();
+            Console.WriteLine(clock.display);
+            Console.ReadLine();
         }
     }
 
     class NumberDisplay
     {
-        int value;
+        public int value;
         int limit;
 
         public NumberDisplay(int rolloverLimit)
@@ -49,12 +54,14 @@ namespace DigitalClock
         NumberDisplay hours;
         NumberDisplay minutes;
         //NumberDisplay seconds;
+        public string display;
 
         public ClockDisplay()
         {
             hours = new NumberDisplay(24);
             minutes = new NumberDisplay(60);
             //seconds = new NumberDisplay(60);
+            UpdateDisplay();
         }
 
         public ClockDisplay(int hour, int minute)
@@ -62,12 +69,28 @@ namespace DigitalClock
             hours = new NumberDisplay(24);
             minutes = new NumberDisplay(60);
             SetTime(hour, minute);
+            UpdateDisplay();
         }
 
         void SetTime(int hour, int minute)
         {
             hours.setDisplayValue(hour);
             minutes.setDisplayValue(minute);
+        }
+
+        public void timeTick()
+        {
+            minutes.increment();
+            if (minutes.value == 0)
+            {
+                hours.increment();
+            }
+            UpdateDisplay();
+        }
+
+        public void UpdateDisplay()
+        {
+            display = hours.getDisplayValue() + ":" + minutes.getDisplayValue();
         }
     }
 }
