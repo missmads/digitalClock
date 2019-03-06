@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F5EC86FE-AC92-450F-AA3C-D6358AEE7BF2}</ProjectGuid>
+    <ProjectGuid>{4B56F8FD-EC04-4B76-B8A8-C5187DE84F13}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>DigitalClock</RootNamespace>
     <AssemblyName>DigitalClock</AssemblyName>
@@ -43,9 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\..\OneDrive\Skrivebord\Git\DigitalClock\digitalClock\Program.cs">
-      <Link>Program.cs</Link>
-    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
